@@ -1,0 +1,404 @@
+/******************************************************************
+
+Stylesheet: ベーススタイル
+
+******************************************************************/
+//-----common↓------//
+body {
+    font-family: "Kameron","Noto Sans JP",sans-serif;
+}
+img {
+    max-width: 100%;
+    vertical-align: bottom;
+}
+%font-sm {
+font-size: 14px;
+}
+%font-md {
+font-size: 17px;
+}
+%font-lr {
+font-size: 17px;
+}
+%font-lg {
+font-size: 25px;
+}
+%mb-sm {
+margin-bottom: 16px !important;
+}
+%mb-lg {
+margin-bottom: 80px !important;
+}
+%pb-sm {
+padding-bottom: 16px !important;
+}
+%pb-lg {
+padding-bottom: 80px !important;
+}
+%content-width {
+    width: 90%;
+    margin: 0 auto;
+    max-width: $contentMaxWidth;
+}
+%flex {
+    display: flex;
+    flex-direction: column;
+}
+.purple {
+    color: $cWineRed;
+}
+.main-title {
+    @extend %font-lg;
+    font-weight: 600;
+    margin-bottom: 0;
+    display: block;
+}
+.sub-title {
+    @extend %font-sm;
+    color: $cSubTitle;
+}
+
+#container {
+    background-color: white;
+    position: relative;
+    z-index: 10;
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+//-----common↑------//
+
+//-----logo↓--------//
+.logo {
+    font-size: 42px;
+    display: flex;
+
+    &__img {
+        width: 0.7em;
+    }
+
+    &__world {
+        color: $cLogoText;
+    }
+}
+//-----logo↑--------//
+
+//-----main-container↓-----//
+#main-content {
+    position: relative;
+    z-index: 0;
+}
+//-----main-container↑-----//
+
+//-----side↓-----//
+.side {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    top: 70%;
+    transform: translateY(-50%);
+    transition: all .3s ease-in;
+
+    & .tween-animate-title_infinite {
+        margin: 0 40px;
+        color: $cBlack;
+        text-decoration: none !important;
+        vertical-align: middle;
+        letter-spacing: 2px;
+    }
+
+    &.left {
+        left: -50px;
+
+        &.inview {
+            left: 50px;
+        }
+
+        & .side__inner {
+            transform-origin: top left;
+            transform: rotate(-90deg);
+        }
+    }
+
+    &.right {
+        right: -50px;
+
+        &.inview {
+            right: 50px;
+        }
+
+        & .side__inner {
+            transform-origin: top right;
+            transform: rotate(90deg);
+        }
+    }
+}
+//-----side↑-----//
+
+//-----icon↓-----//
+.icon {
+    position: relative;
+
+    &::before {
+        content: "";
+        display: block;
+        position: absolute;
+        left: -20px;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 1em;
+        height: 1em;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+    }
+
+    &.twitter {
+        &::before {
+            background-image: url(../images/twitter.svg);
+        }
+    }
+
+    &.fb {
+        &::before {
+            background-image: url(../images/facebook.svg);
+        }
+    }
+}
+//-----icon↑-----//
+
+//-----header↓-----//
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100px;
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.triggered {
+        background-color: rgba(255, 255, 255, 0.9);
+        box-shadow: 10px 0 25px -10px rgba(0, 0, 0, 0.5);
+    }
+
+    &__nav {
+        display: none;
+    }
+
+    &__list {
+        display: flex;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+
+    &__item:not(:nth-of-type(1)) {
+        margin-left: 20px;
+
+        & > a {
+            color: $cBlack;
+            text-decoration: none !important;
+            text-transform: uppercase;
+        }
+    }
+
+    & .logo {
+        font-size: 38px;
+    }
+
+    &__inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @extend %content-width;
+    }
+}
+//-----header↑-----//
+
+//-----footer↓-----//
+.footer {
+    @extend %content-width;
+    padding: 60px 0;
+
+    & .logo {
+        font-size: 38px;
+        justify-content: center;
+    }
+
+    &__nav {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    &__list {
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        margin: 10px;
+        padding: 0;
+    }
+
+    &__item {
+        padding: 0;
+        margin: 10px;
+
+        & > a {
+            color: $cSubTitle;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+//-----footer↑-----//
+
+//-----travel↓-----//
+.travel {
+    @extend %content-width;
+    @extend %mb-lg;
+
+    &__inner {
+        position: relative;
+        z-index: 0;
+        padding: 15px;
+        background-color: $cBgGray;
+        @extend %flex;
+    }
+
+    &__title {
+        position: relative;
+
+        &::before {
+            content: "";
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: -120px;
+            width: 100px;
+            height: 1px;
+            background-color: $cBlack;
+            transform: translateY(-50%) scaleX(0);
+            transform-origin: right;
+            transition: transform 0.8s ease 1.6s;
+        }
+    }
+
+    &__texts {
+        @extend %mb-sm;
+
+        &.inview {
+            .travel__title::before {
+                transform: translateY(-50%);
+            }
+        }
+    }
+
+    &__sub {
+        @extend %mb-sm;
+    }
+
+    &__img {
+        @extend %mb-sm;
+        height: 300px;
+        transition: box-shadow 0.8s linear;
+
+        & > img {
+            position: relative;
+            z-index: -1;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        &.inview {
+            box-shadow: inset 0 0 30px $cBlack;
+            transition-delay: 0.8s;
+        }
+    }
+}
+//-----travel↑-----//
+
+//-----houses↓-----//
+.houses {
+    @extend %content-width;
+    @extend %mb-lg;
+
+    &__inner {
+        display: flex;
+        flex-direction: column
+    }
+
+    &__title {
+        @extend %font-lr;
+        @extend %mb-sm;
+    }
+
+    &__btn {
+        text-align: center;
+    }
+}
+//-----houses↑-----//
+
+//-----popular↓-----//
+
+.popular {
+    &__header {
+        @extend %content-width;
+    }
+
+    &__inner {
+        position: relative;
+
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 10%;
+            left: 0;
+            // z-index: -1;
+            width: 100%;
+            height: 90%;
+            background-color: $cBgGray;
+        }
+    }
+
+    &__container {
+        @extend %content-width;
+        @extend %pb-sm;
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__img {
+        height: 150px;
+        overflow: hidden;
+        margin-bottom: 5px;
+
+        & > img {
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+    }
+
+    &__title {
+        @extend %mb-sm;
+        @extend %font-md;
+    }
+
+    &__btn {
+        @extend %mb-lg;
+        text-align: center;
+    }
+}
+
+//-----popular↑-----//

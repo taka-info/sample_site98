@@ -1,0 +1,33 @@
+
+$bp-list-up: (
+    sm-col: (min-width: #{map-get($bp,sm-col)}px),
+    sm-row: (min-width: #{map-get($bp,sm-row)}px),
+    tab: (min-width: #{map-get($bp,tab)}px),
+    pc: (min-width: #{map-get($bp,pc)}px)
+)!default;
+@mixin mq-up($key) {
+    @media screen and #{map-get($bp-list-up, $key)} {
+        @content;
+    }
+};
+
+
+@mixin animation(
+    $name,
+    $duration:1s,
+    $timing-function: ease,
+    $delay:0s,
+    $iteration-count:1,
+    $direction: normal,
+    $fill-mode: forwards
+){
+    animation: {
+        name: $name;
+        duration: $duration;
+        timing-function: $timing-function;
+        delay: $delay;
+        iteration-count: $iteration-count;
+        direction: $direction;
+        fill-mode: $fill-mode;
+    }
+};

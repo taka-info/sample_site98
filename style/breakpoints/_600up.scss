@@ -1,0 +1,90 @@
+/******************************************************************
+
+Stylesheet: 600px以上のタブレットやモニタで適用
+
+******************************************************************/
+//-----footer↓-----//
+.footer {
+
+    .logo {
+        justify-content: flex-start;
+    }
+
+    &__nav {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__list {
+        flex-direction: row;
+    }
+
+    &__item {
+        margin-left: 0;
+
+        &:not(:last-of-type) {
+            margin-right: 30px;
+        }
+    }
+}
+//-----footer↑-----//
+
+//-----travel↓-----//
+.travel {
+
+    &__inner {
+        padding: 50px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    &__img {
+        flex-basis: 47%;
+    }
+
+    &__texts {
+        flex-basis: 47%;
+        display: flex;
+        align-items: flex-end;
+    }
+}
+//-----travel↑-----//
+
+//-----houses↓-----//
+.houses {
+
+    &__inner {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    &__item {
+        margin-bottom: 50px;
+        flex-basis: 50%;
+    }
+
+    &__btn {
+        flex-basis: 100%;
+    }
+}
+//-----houses↑-----//
+
+//-----popular↓-----//
+.popular {
+
+    &__container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    &__item {
+        flex-basis: 47%;
+    }
+
+    &__btn {
+        flex-basis: 100%;
+    }
+}
+//-----popular↑-----//

@@ -1,0 +1,106 @@
+#global-container {
+  opacity: 0;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+  visibility: hidden;
+}
+
+.pace-done #global-container {
+  opacity: 1;
+  visibility: visible;
+}
+
+.pace {
+  -webkit-pointer-events: none;
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+      user-select: none;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+  border-radius: 10px;
+  background-clip: padding-box;
+  z-index: 2000;
+  position: fixed;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 200px;
+  height: 50px;
+}
+
+.pace.pace-inactive {
+  display: none;
+}
+
+.pace .pace-progress {
+  -webkit-transform: none !important;
+          transform: none !important;
+}
+
+.pace .pace-progress::after {
+  content: attr(data-progress-text);
+  display: block;
+  text-align: center;
+  font-weight: 100;
+  font-size: 2em;
+  font-family: 'Helvetica-Neue', 'Yu Gothic', 'Meiryo', sans-serif;
+  color: #535353;
+}
+
+.pace .pace-progress-inner {
+  width: 40px;
+  height: 40px;
+  background: #904669;
+  margin: 0 auto;
+  -webkit-animation-name: sk-rotateplane;
+          animation-name: sk-rotateplane;
+  -webkit-animation-duration: 1.2s;
+          animation-duration: 1.2s;
+  -webkit-animation-timing-function: ease-in-out;
+          animation-timing-function: ease-in-out;
+  -webkit-animation-delay: 0s;
+          animation-delay: 0s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+  -webkit-animation-direction: normal;
+          animation-direction: normal;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+@-webkit-keyframes sk-rotateplane {
+  0% {
+    -webkit-transform: perspective(200px) rotateX(0deg) rotateY(0deg);
+            transform: perspective(200px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    -webkit-transform: perspective(200px) rotateX(180deg) rotateY(0deg);
+            transform: perspective(200px) rotateX(180deg) rotateY(0deg);
+  }
+  100% {
+    -webkit-transform: perspective(200px) rotateX(180deg) rotateY(180deg);
+            transform: perspective(200px) rotateX(180deg) rotateY(180deg);
+  }
+}
+
+@keyframes sk-rotateplane {
+  0% {
+    -webkit-transform: perspective(200px) rotateX(0deg) rotateY(0deg);
+            transform: perspective(200px) rotateX(0deg) rotateY(0deg);
+  }
+  50% {
+    -webkit-transform: perspective(200px) rotateX(180deg) rotateY(0deg);
+            transform: perspective(200px) rotateX(180deg) rotateY(0deg);
+  }
+  100% {
+    -webkit-transform: perspective(200px) rotateX(180deg) rotateY(180deg);
+            transform: perspective(200px) rotateX(180deg) rotateY(180deg);
+  }
+}
+/*# sourceMappingURL=loading-bar.css.map */

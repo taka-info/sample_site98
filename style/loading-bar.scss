@@ -1,0 +1,90 @@
+@import './modules/variables';
+@import './modules/mixin';
+
+
+#global-container {
+    opacity: 0;
+    transition: opacity 1s;
+    visibility: hidden;
+}
+
+.pace-done #global-container {
+    opacity: 1;
+    visibility: visible;
+}
+
+.pace {
+	-webkit-pointer-events: none;
+	pointer-events: none;
+
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	user-select: none;
+
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+	-o-box-sizing: border-box;
+	box-sizing: border-box;
+
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+
+	-webkit-background-clip: padding-box;
+	-moz-background-clip: padding;
+	background-clip: padding-box;
+
+	z-index: 2000;
+	position: fixed;
+	margin: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 200px;
+	height: 50px;
+
+	&.pace-inactive {
+		display: none;
+	}
+
+	& .pace-progress {
+		transform: none !important;
+	
+		&::after {
+			content: attr(data-progress-text);
+			display: block;
+			text-align: center;
+			font-weight: 100;
+			font-size: 2em;
+			font-family: 'Helvetica-Neue', 'Yu Gothic', 'Meiryo', sans-serif;
+			color: $cLoderNum;
+			
+		}
+	}
+
+	& .pace-progress-inner {
+		width: 40px;
+		height: 40px;
+		background: $cLoderBg;
+		margin: 0 auto;
+		@include animation(
+			$name:sk-rotateplane,
+			$duration: 1.2s,
+			$iteration-count: infinite,
+			$timing-function: ease-in-out,
+		);
+	}
+}
+@keyframes sk-rotateplane {
+	0%{
+		transform: perspective(200px) rotateX(0deg) rotateY(0deg);
+	}
+	50%{
+		transform: perspective(200px) rotateX(180deg) rotateY(0deg);
+	}
+	100%{
+		transform: perspective(200px) rotateX(180deg) rotateY(180deg);
+	}
+};
